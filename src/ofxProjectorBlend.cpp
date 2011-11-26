@@ -2,7 +2,8 @@
  *  ofxProjectorBlend
  *  (version 2.0)
  *
- * Copyright 2010 (c) James George, http://www.jamesgeorge.org
+ * based on Paul Bourke's paper http://local.wasp.uwa.edu.au/~pbourke/texture_colour/edgeblend/
+ * Original openFrameworks addon by James George, http://www.jamesgeorge.org
  * in collaboration with FlightPhase http://www.flightphase.com
  * additions by Marek Bereza, http://www.mazbox.com/
  * further additions by Jeff Crouse http://www.jeffcrouse.info
@@ -31,7 +32,6 @@
  * ----------------------
  *
  * This class is an openFrameworks wrapper for this technique:
- * from http://local.wasp.uwa.edu.au/~pbourke/texture_colour/edgeblend/
  * Original Core Image filter converted by James George ( http://www.jamesgeorge.org/ )
  * for ofxProjectorBlend addon for openFrameworks ( http://www.openframeworks.cc )
  *

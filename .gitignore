@@ -1,0 +1,97 @@
+*.mode*
+*.pbxuser
+*.xcworkspace
+xcuserdata/
+
+build/
+obj/
+*.o
+openFrameworks.a
+openFrameworksDebug.a
+openFrameworksUniversal.a
+*.app
+
+#rule to avoid non-official addons going into git
+#see addons/.gitignore
+#addons/**
+
+#NMM:
+apps/*/*/bin/data/img_cache
+
+#codeblocks files
+apps/*/*/*.layout
+apps/*/*/*.depend
+apps/*/*/bin/clickToLaunch*
+apps/*/*/bin/libs
+apps/*/*/obj
+
+#rule to avoid non-official apps going into git
+#see apps/.gitignore
+#apps
+
+#codeblocks OF lib files
+libs/openFrameworksCompiled/project/*/*.depend
+libs/openFrameworksCompiled/project/*/*.layout
+
+#linux temporary files
+*~
+
+#eclipse build folders
+#Mac OS X
+addons/Debug Mac OS X
+addons/Release Mac OS X
+libs/openFrameworks/Debug Mac OS X
+libs/openFrameworks/Release Mac OS X
+apps/*/*/Debug Mac OS X
+apps/*/*/Release Mac OS X
+.DS_Store
+
+#xcode
+*.perspectivev3
+*.pbxuser
+
+
+#Linux
+addons/Debug Linux
+addons/Release Linux
+libs/openFrameworks/Debug Linux
+libs/openFrameworks/Release Linux
+apps/*/*/Debug Linux
+apps/*/*/Release Linux
+apps/*/*/Debug Linux64
+apps/*/*/Release Linux64
+
+
+
+apps/nmm/NMMVisualizer/bin/data/journeys/**
+apps/nmm/NMMVisualizer/bin/data/img_cache/**
+#/apps/nmm/_sharedTestingFiles/SampleLayout/Wave_layout_template_scaleREZ_04_cs3.ai
+#/apps/nmm/_sharedTestingFiles/SampleLayout/Wave_layout_template_scaleREZ_04_cs3.svg
+/apps/nmm/NMMVisualizer/bin/data/VisualizerSettings.xml
+
+#Android
+addons/Debug Android
+addons/Release Android
+libs/openFrameworks/Debug Android
+libs/openFrameworks/Release Android
+libs/openFrameworks/Release
+libs/openFrameworks/Debug
+libs/openFrameworks/Release_arm7
+apps/*/*/Debug Android
+apps/*/*/Release Android
+apps/*/*/Debug
+apps/*/*/Release
+apps/*/*/Release_arm7
+apps/*/*/test link
+apps/*/*/obj
+#apps/*/*/bin
+
+.csettings
+
+/apps/nmm/NMMPufferfish_DesignPrototype/bin/data/Puffersphere Settings_settings.xml
+/apps/nmm/NMMRenderer/bin/data/mpe_config.xml
+/apps/nmm/NMMRenderer/NMMRenderer.xcodeproj/focus.perspectivev3
+/apps/nmm/NMMRenderer/bin/data/LocalSettings.xml
+/apps/nmm/NMMAudioPlayer/bin/data/Test conflict_settings.xml
+/apps/nmm/NMMAudioPlayer/bin/data/Test navigation_settings.xml
+/apps/nmm/NMMAudioPlayer/bin/data/Test trade_settings.xml

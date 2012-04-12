@@ -32,14 +32,13 @@
  * ----------------------
  *
  * This class is an openFrameworks wrapper for this technique:
- * Original Core Image filter converted by James George ( http://www.jamesgeorge.org/ )
+ * Original Core Image filter by Matthias Oostrik ( http://www.oostrik.net/ )
+ * Converted by James George ( http://www.jamesgeorge.org/ )
  * for ofxProjectorBlend addon for openFrameworks ( http://www.openframeworks.cc )
  *
  * Originally used in the Infiniti MOI project for projector blending ( http://vimeo.com/14588336 )
  * Also used for Coke24 project with Hellicar and Lewis ( http://www.hellicarandlewis.com/2011/03/22/coke-24hr-music/ )
  * and Flightphase's University of Dayton interactive wall ( http://www.flightphase.com/main_wp/expanded-media/interactive-wall-at-ud )
- *
- *
  */
 
 void main(void)

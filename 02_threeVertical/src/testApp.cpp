@@ -2,14 +2,39 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-
+    ofSetFrameRate(60);
+    ofSetVerticalSync(true);
+    
+    
     blender.setup(640, 480, 3, 20, ofxProjectorBlend_Vertical);
-    blender.setWindowToDisplaySize(); 
+    blender.setWindowToDisplaySize();
+    
+    radius = 40;
+    pos.x = ofRandom(radius, blender.getCanvasWidth()-radius);
+    pos.y = ofRandom(radius, blender.getCanvasHeight()-radius);
+    vel.set(10, 10);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
 
+    pos += vel;
+    if(pos.x > blender.getCanvasWidth()-radius) {
+        pos.x = blender.getCanvasWidth()-radius;
+        vel.x *= -1;
+    }
+    if(pos.x < radius) {
+        pos.x = radius;
+        vel.x *= -1;
+    }
+    if(pos.y > blender.getCanvasHeight()-radius) {
+        pos.y = blender.getCanvasHeight()-radius;
+        vel.y *= -1;
+    }
+    if(pos.y < radius) {
+        pos.y = radius;
+        vel.y *= -1;
+    }
 }
 
 //--------------------------------------------------------------
@@ -33,6 +58,9 @@ void testApp::draw(){
         for(int j = 0; j <= blender.getCanvasHeight(); j+=40){
             ofLine(0, j, blender.getCanvasWidth(), j);
         }
+        
+        ofSetColor(255, 0, 0);
+        ofCircle(pos, radius);
         
         //instructions
         ofSetColor(255, 255, 255);

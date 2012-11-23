@@ -21,4 +21,6 @@ class testApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
 		
         ofxProjectorBlend blender;
+        ofPoint pos, vel;
+        float radius;
 };

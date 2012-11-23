@@ -3,9 +3,9 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 	blender.setup(PROJECTOR_WIDTH, PROJECTOR_HEIGHT, PROJECTOR_COUNT, PIXEL_OVERLAP);
-	blender.gamma = .5;
-	blender.blendPower = 1;
-	blender.luminance = 0;
+	blender.gamma[0] = .5;
+	blender.blendPower[0] = 1;
+	blender.luminance[0] = 0;
     
     cout << "canvas size: " << blender.getCanvasWidth() << " x " << blender.getCanvasHeight() << endl;
     cout << "display size: " << blender.getDisplayWidth() << " x " << blender.getDisplayHeight() << endl;
@@ -72,28 +72,22 @@ void testApp::keyReleased(int key){
 	// http://local.wasp.uwa.edu.au/~pbourke/texture_colour/edgeblend/
 	
 	else if(key == 'g'){
-		blender.gamma  -= .05;
-		blender.gamma2 -= .05;
+		blender.gamma[0]  -= .05;
 	}
 	else if(key == 'G'){
-		blender.gamma  += .05;
-		blender.gamma2 += .05;
+		blender.gamma[0]  += .05;
 	}
 	else if(key == 'l'){
-		blender.luminance  -= .05;
-		blender.luminance2 -= .05;
+		blender.luminance[0]  -= .05;
 	}
 	else if(key == 'L'){
-		blender.luminance  += .05;
-		blender.luminance2 += .05;
+		blender.luminance[0]  += .05;
 	}
 	else if(key == 'p'){
-		blender.blendPower  -= .05;
-		blender.blendPower2 -= .05;
+		blender.blendPower[0]  -= .05;
 	}
 	else if(key == 'P'){
-		blender.blendPower  += .05;
-		blender.blendPower2 += .05;
+		blender.blendPower[0] += .05;
 	}
 }
 

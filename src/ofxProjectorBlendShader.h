@@ -29,12 +29,12 @@ uniform float BlackOutLeft;
 uniform float BlackOutRight; 
 uniform float BlackOutTop;
 uniform float BlackOutBottom;
-uniform float BlendPower;
-uniform float SomeLuminanceControl;
-uniform vec3  GammaCorrection;
-uniform float BlendPower2;
-uniform float SomeLuminanceControl2;
-uniform vec3  GammaCorrection2;
+uniform float BlendPower0;
+uniform float SomeLuminanceControl0;
+uniform vec3  GammaCorrection0;
+uniform float BlendPower1;
+uniform float SomeLuminanceControl1;
+uniform vec3  GammaCorrection1;
 uniform float SolidEdgeEnable;
 uniform vec4  SolidEdgeColor;
 uniform vec2  texCoordOffset;
@@ -66,11 +66,11 @@ vec4 drawSmoothEdges(in vec4 overlap, in vec4 blankout, in vec4 color)
 	vec2 xy_t = xy + texCoordOffset.xy;
 	vec4 blank = vec4(0.0,0.0,0.0,0.0);	
 	
-	float proj2 = 1.0;//projectors ... this basically defines a limit;
+	float proj2 = 1.0; //projectors ... this basically defines a limit;
 	float thresh = proj2 * width + overlap.x;//(projectors - overlap.x) * width;
-	float blnPwr = (xy_t.x > thresh) ? BlendPower: BlendPower2;
-	float slc    = (xy_t.x > thresh) ? SomeLuminanceControl: SomeLuminanceControl2;
-	vec3 gamma   = (xy_t.x > thresh) ? GammaCorrection: GammaCorrection2;
+	float blnPwr = (xy_t.x > thresh) ?  BlendPower1 : BlendPower0;
+	float slc    = (xy_t.x > thresh) ?  SomeLuminanceControl1 : SomeLuminanceControl0;
+	vec3 gamma   = (xy_t.x > thresh) ?  GammaCorrection1 : GammaCorrection0;
 	slc += 0.5;
 	
 	vec4 sebImage = 
@@ -170,9 +170,6 @@ vec4 drawSolidEdges(vec4 overlap, vec4 blankout, vec4 color)
 
 void main (void)
 {
-//	float SLC = SomeLuminanceControl + 0.5;
-//	float SLC2 = SomeLuminanceControl2 + 0.5;
-//	vec3 gamma = GammaCorrection;
 	vec4 overlap = vec4 (OverlapLeft, OverlapRight, OverlapBottom, OverlapTop);
 	vec4 blankout = vec4 (BlackOutLeft, BlackOutRight, BlackOutBottom, BlackOutTop);
 	gl_FragData[0] = (SolidEdgeEnable == 1.0) ?

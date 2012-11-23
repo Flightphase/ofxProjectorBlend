@@ -6,9 +6,12 @@
 ofxProjectorBlend::ofxProjectorBlend()
 {
 	showBlend = true;
-	gamma = gamma2 = 0.5;
-	blendPower = blendPower2 = 1;
-	luminance = luminance2 = 0;
+	//gamma = gamma2 = 0.5;
+	//blendPower = blendPower2 = 1;
+	//luminance = luminance2 = 0;
+    gamma.resize(2, 0.5);
+    blendPower.resize(2, 1);
+    luminance.resize(2, 0);
 	numProjectors = 0;
 	threshold = 0;
 }
@@ -22,6 +25,7 @@ void ofxProjectorBlend::setup(int resolutionWidth,
 							  ofxProjectorBlendLayout _layout, 
 							  ofxProjectorBlendRotation _rotation)
 {
+
 	string l = "horizontal";
 	if(layout==ofxProjectorBlend_Vertical) l = "vertical";
 	
@@ -73,11 +77,14 @@ void ofxProjectorBlend::setup(int resolutionWidth,
 	
 	fullTexture.allocate(fullTextureWidth, fullTextureHeight, GL_RGB, 4);
     
-    
     blendShader.unload();
     blendShader.setupShaderFromSource(GL_FRAGMENT_SHADER, ofxProjectorBlendFragShader);
     blendShader.setupShaderFromSource(GL_VERTEX_SHADER, ofxProjectorBlendVertShader);
     blendShader.linkProgram();
+    
+    gamma.resize(numProjectors-1, 0.5);
+    blendPower.resize(numProjectors-1, 1);
+    luminance.resize(numProjectors-1, 0);
 }
 
 
@@ -155,14 +162,18 @@ void ofxProjectorBlend::updateShaderUniforms()
 	blendShader.setUniform1f("OverlapBottom", 0.0f);
 	blendShader.setUniform1f("OverlapRight", 0.0f);
 	
-	blendShader.setUniform1f("BlendPower", blendPower);
-	blendShader.setUniform1f("SomeLuminanceControl", luminance);
-	blendShader.setUniform3f("GammaCorrection", gamma, gamma, gamma);
-	
-	blendShader.setUniform1f("BlendPower2", blendPower2);
-	blendShader.setUniform1f("SomeLuminanceControl2", luminance2);
-	blendShader.setUniform3f("GammaCorrection2", gamma2, gamma2, gamma2);
-	
+    for(int i=0; i<numProjectors-1; i++)
+    {
+        string blendUniform = "BlendPower"+ofToString(i);
+        blendShader.setUniform1f(blendUniform.c_str(), blendPower[i]);
+        
+        string lumUniform = "SomeLuminanceControl"+ofToString(i);
+        blendShader.setUniform1f(lumUniform.c_str(), luminance[i]);
+        
+        string gammaUniform = "GammaCorrection"+ofToString(i);
+        blendShader.setUniform3f(gammaUniform.c_str(), gamma[i], gamma[i], gamma[i]);
+    }
+
 	blendShader.setUniform1f("projectors", this->numProjectors);
 	blendShader.setUniform1f("threshold", threshold);
 }

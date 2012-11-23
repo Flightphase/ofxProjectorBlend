@@ -4,10 +4,7 @@
 void testApp::setup(){
 
     blender.setup(640, 480, 3, 20, ofxProjectorBlend_Vertical);
-    blender.setWindowToDisplaySize();
-	blender.gamma = .5;
-	blender.blendPower = 1;
-	blender.luminance = 0;    
+    blender.setWindowToDisplaySize(); 
 }
 
 //--------------------------------------------------------------
@@ -67,28 +64,28 @@ void testApp::keyReleased(int key){
 	// http://local.wasp.uwa.edu.au/~pbourke/texture_colour/edgeblend/
 	
 	else if(key == 'g'){
-		blender.gamma  -= .05;
-		blender.gamma2 -= .05;
+		blender.gamma[0]  -= .05;
+		blender.gamma[1] -= .05;
 	}
 	else if(key == 'G'){
-		blender.gamma  += .05;
-		blender.gamma2 += .05;
+		blender.gamma[0]  += .05;
+		blender.gamma[1] += .05;
 	}
 	else if(key == 'l'){
-		blender.luminance  -= .05;
-		blender.luminance2 -= .05;
+		blender.luminance[0]  -= .05;
+		blender.luminance[1] -= .05;
 	}
 	else if(key == 'L'){
-		blender.luminance  += .05;
-		blender.luminance2 += .05;
+		blender.luminance[0]  += .05;
+		blender.luminance[1] += .05;
 	}
 	else if(key == 'p'){
-		blender.blendPower  -= .05;
-		blender.blendPower2 -= .05;
+		blender.blendPower[0]  -= .05;
+		blender.blendPower[1] -= .05;
 	}
 	else if(key == 'P'){
-		blender.blendPower  += .05;
-		blender.blendPower2 += .05;
+		blender.blendPower[0]  += .05;
+		blender.blendPower[1] += .05;
 	}
 }
 

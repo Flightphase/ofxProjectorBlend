@@ -5,9 +5,6 @@ void testApp::setup(){
 
     blender.setup(PROJECTOR_WIDTH, PROJECTOR_HEIGHT, PROJECTOR_COUNT, PIXEL_OVERLAP);
     blender.setWindowToDisplaySize();
-	blender.gamma = .5;
-	blender.blendPower = 1;
-	blender.luminance = 0;
     
     cout << "canvas size: " << blender.getCanvasWidth() << " x " << blender.getCanvasHeight() << endl;
     cout << "display size: " << blender.getDisplayWidth() << " x " << blender.getDisplayHeight() << endl;
@@ -47,6 +44,18 @@ void testApp::draw(){
             blendClown.draw(0, 0);
         }
         
+        //instructions
+        ofSetColor(255, 255, 255);
+        ofRect(10, 10, 300, 100);
+        ofSetColor(0, 0, 0);
+        stringstream instructions;
+        instructions << "SPACE - toggle show blend" << endl;
+        instructions << "[g/G] - adjust gamma" << endl;
+        instructions << "[p/P] - adjust blend power" << endl;
+        instructions << "[l/L] - adjust luminance" << endl;
+        instructions << "[c] - show/hide blend clown" << endl;
+        ofDrawBitmapString(instructions.str(), 15, 35);
+        
 	}
 	blender.end(); //call when you are finished drawing
 	
@@ -72,29 +81,29 @@ void testApp::keyReleased(int key){
 	// http://local.wasp.uwa.edu.au/~pbourke/texture_colour/edgeblend/
 	
 	else if(key == 'g'){
-		blender.gamma  -= .05;
-		blender.gamma2 -= .05;
+		blender.gamma[0]  -= .05;
+		blender.gamma[1] -= .05;
 	}
 	else if(key == 'G'){
-		blender.gamma  += .05;
-		blender.gamma2 += .05;
+		blender.gamma[0]  += .05;
+		blender.gamma[1] += .05;
 	}
 	else if(key == 'l'){
-		blender.luminance  -= .05;
-		blender.luminance2 -= .05;
+		blender.luminance[0]  -= .05;
+		blender.luminance[1] -= .05;
 	}
 	else if(key == 'L'){
-		blender.luminance  += .05;
-		blender.luminance2 += .05;
+		blender.luminance[0]  += .05;
+		blender.luminance[1] += .05;
 	}
 	else if(key == 'p'){
-		blender.blendPower  -= .05;
-		blender.blendPower2 -= .05;
+		blender.blendPower[0]  -= .05;
+		blender.blendPower[1] -= .05;
 	}
 	else if(key == 'P'){
-		blender.blendPower  += .05;
-		blender.blendPower2 += .05;
-	} else if (key=='c') {
+		blender.blendPower[0]  += .05;
+		blender.blendPower[1] += .05;
+	}else if (key=='c') {
         bDrawClown = !bDrawClown;
     }
 }

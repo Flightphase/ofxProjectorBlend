@@ -5,17 +5,16 @@ void testApp::setup(){
 
     blender.setup(PROJECTOR_WIDTH, PROJECTOR_HEIGHT, PROJECTOR_COUNT, PIXEL_OVERLAP);
 	blender.setWindowToDisplaySize();
-    blender.gamma = .5;
-	blender.blendPower = 1;
-	blender.luminance = 0;
+
     
 	gui.addToggle("Show Blend", blender.showBlend);
-	gui.addSlider("Blend Power", blender.blendPower, 0.0, 4.0);
-	gui.addSlider("Gamma", blender.gamma, 0.1, 4.0);
-	gui.addSlider("Luminance", blender.luminance, 0.0, 4.0);
-	gui.addSlider("Blend Power 2", blender.blendPower2, 0.0, 4.0);
-	gui.addSlider("Gamma 2", blender.gamma2, 0.1, 4.0);
-	gui.addSlider("Luminance 2", blender.luminance2, 0.0, 4.0);
+
+    for (int i=0; i<PROJECTOR_COUNT-1; i++)
+    {
+        gui.addSlider("Blend Power "+ofToString(i+1), blender.blendPower[i], 0.0, 4.0);
+        gui.addSlider("Gamma "+ofToString(i+1), blender.gamma[i], 0.1, 4.0);
+        gui.addSlider("Luminance "+ofToString(i+1), blender.luminance[i], 0.0, 4.0);
+    }
     
     gui.loadFromXML();
     gui.show();

@@ -13,7 +13,7 @@
     </SliderFloat_Gamma>
     <SliderFloat_Luminance>
         <name>Luminance</name>
-        <value>1.500000000</value>
+        <value>1.000000000</value>
     </SliderFloat_Luminance>
     <SliderFloat_Blend_Power_2>
         <name>Blend Power 2</name>

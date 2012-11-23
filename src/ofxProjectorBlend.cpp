@@ -78,7 +78,7 @@ void ofxProjectorBlend::setup(int resolutionWidth,
 	fullTexture.allocate(fullTextureWidth, fullTextureHeight, GL_RGB, 4);
     
     blendShader.unload();
-    blendShader.setupShaderFromSource(GL_FRAGMENT_SHADER, ofxProjectorBlendFragShader);
+    blendShader.setupShaderFromSource(GL_FRAGMENT_SHADER, ofxProjectorBlendFragShader(numProjectors-1));
     blendShader.setupShaderFromSource(GL_VERTEX_SHADER, ofxProjectorBlendVertShader);
     blendShader.linkProgram();
     
@@ -161,23 +161,17 @@ void ofxProjectorBlend::updateShaderUniforms()
 	blendShader.setUniform1f("OverlapLeft", 0.0f);
 	blendShader.setUniform1f("OverlapBottom", 0.0f);
 	blendShader.setUniform1f("OverlapRight", 0.0f);
-	
-    for(int i=0; i<numProjectors-1; i++)
-    {
-        string blendUniform = "BlendPower"+ofToString(i);
-        blendShader.setUniform1f(blendUniform.c_str(), blendPower[i]);
-        
-        string lumUniform = "SomeLuminanceControl"+ofToString(i);
-        blendShader.setUniform1f(lumUniform.c_str(), luminance[i]);
-        
-        string gammaUniform = "GammaCorrection"+ofToString(i);
-        blendShader.setUniform3f(gammaUniform.c_str(), gamma[i], gamma[i], gamma[i]);
-    }
 
+    blendShader.setUniform1fv("BlendPower", &blendPower[0], blendPower.size());
+    blendShader.setUniform1fv("SomeLuminanceControl", &luminance[0], luminance.size());
+    blendShader.setUniform1fv("GammaCorrection", &gamma[0], gamma.size());
+    
 	blendShader.setUniform1f("projectors", this->numProjectors);
 	blendShader.setUniform1f("threshold", threshold);
 }
 
+
+// --------------------------------------------------
 void ofxProjectorBlend::draw(float x, float y) {
 	ofSetHexColor(0xFFFFFF);
 	glPushMatrix();

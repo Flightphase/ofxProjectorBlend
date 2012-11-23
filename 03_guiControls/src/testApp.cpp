@@ -13,7 +13,7 @@ void testApp::setup(){
     {
         gui.addSlider("Blend Power "+ofToString(i+1), blender.blendPower[i], 0.0, 4.0);
         gui.addSlider("Gamma "+ofToString(i+1), blender.gamma[i], 0.1, 4.0);
-        gui.addSlider("Luminance "+ofToString(i+1), blender.luminance[i], 0.0, 4.0);
+        gui.addSlider("Luminance "+ofToString(i+1), blender.luminance[i], 0.0, 1.0);
     }
     
     gui.loadFromXML();

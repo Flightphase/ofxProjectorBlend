@@ -1,0 +1,30 @@
+<controls>
+    <Toggle_Show_Blend>
+        <name>Show Blend</name>
+        <value>1</value>
+    </Toggle_Show_Blend>
+    <SliderFloat_Blend_Power>
+        <name>Blend Power</name>
+        <value>2.019999981</value>
+    </SliderFloat_Blend_Power>
+    <SliderFloat_Gamma>
+        <name>Gamma</name>
+        <value>2.206000090</value>
+    </SliderFloat_Gamma>
+    <SliderFloat_Luminance>
+        <name>Luminance</name>
+        <value>1.500000000</value>
+    </SliderFloat_Luminance>
+    <SliderFloat_Blend_Power_2>
+        <name>Blend Power 2</name>
+        <value>1.759999990</value>
+    </SliderFloat_Blend_Power_2>
+    <SliderFloat_Gamma_2>
+        <name>Gamma 2</name>
+        <value>1.426000118</value>
+    </SliderFloat_Gamma_2>
+    <SliderFloat_Luminance_2>
+        <name>Luminance 2</name>
+        <value>0.000000000</value>
+    </SliderFloat_Luminance_2>
+</controls>

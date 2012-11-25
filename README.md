@@ -1,4 +1,3 @@
-
 # ofxProjectorBlend
 (version 2.0)
 
@@ -32,8 +31,8 @@ This addon is used to take a normal openFrameworks project and split it into 2 o
 
 ### Credits
 - Based on Paul Bourke's paper, ["Edge blending using commodity projectors"](http://paulbourke.net/texture_colour/edgeblend/)
-- Original openFrameworks addon by [James George](http://www.jamesgeorge.org)
-- Core Image filter converted by [James George](http://www.jamesgeorge.org/)
+- Quartz Shader implemenation by Matthias Oostrik ( http://www.oostrik.net )
+- Original openFrameworks addon adaptation by [James George](http://www.jamesgeorge.org)
 - in collaboration with [FlightPhase](http://www.flightphase.com) 
 - additions by [Marek Bereza](http://www.mazbox.com/)
 - This fork was created by [Jeff Crouse](http://www.jeffcrouse.info) specifically for the [Interactive openFrameworks workshop at Kitchen Table Coders](http://kitchentablecoders.com/2012/10/20/intermediate-of-a/).  It is simplified in a few minor ways.
